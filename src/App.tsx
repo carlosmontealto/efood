@@ -1,7 +1,16 @@
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalCss } from './styles'
+import PersonalizedRoute from './routes'
+import Footer from './components/Footer'
+
 function App() {
   return (
     <>
-      <h1>Olá mundo</h1>
+      <BrowserRouter>
+        <GlobalCss />
+        <PersonalizedRoute />
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }
