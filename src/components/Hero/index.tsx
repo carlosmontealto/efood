@@ -1,14 +1,29 @@
+import { useEffect, useState } from 'react'
 import * as S from './styles'
 
-import fotoHero from '../../assets/images/restaurante-italiano.svg'
+type Props = {
+  id: string
+}
 
-const Hero = () => {
+const Hero = ({ id }: Props) => {
+  const [products, setProducts] = useState<Restaurant>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setProducts(res))
+  }, [id])
+
+  if (!products) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
-    <S.Banner style={{ backgroundImage: `url(${fotoHero})` }}>
+    <S.Banner style={{ backgroundImage: `url(${products.capa})` }}>
       <div className="container">
         <S.Infos>
-          <p>Italiana</p>
-          <h2>La Dolce Vita Trattoria</h2>
+          <p>{products.tipo}</p>
+          <h2>{products.titulo}</h2>
         </S.Infos>
       </div>
     </S.Banner>

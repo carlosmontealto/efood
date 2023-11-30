@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 import { Link } from 'react-router-dom'
 import { TagContainer } from '../Tag/styles'
@@ -11,9 +11,10 @@ export const List = styled.ul`
   row-gap: 48px;
   margin-top: 80px;
 
-  li {
-    img {
-      width: 100%;
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    li {
+      margin-bottom: 48px;
     }
   }
 `
@@ -23,6 +24,12 @@ export const ImageContent = styled.div`
   display: block;
   height: auto;
   width: 100%;
+
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
 
   div {
     position: absolute;
@@ -44,6 +51,8 @@ export const Content = styled.div`
   border-left: 1px solid ${colors.salmon};
   background: ${colors.white};
   padding: 8px 8px 16px;
+  height: 220px;
+  position: relative;
 
   h3 {
     display: flex;
@@ -72,6 +81,11 @@ export const Content = styled.div`
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 16px;
+    padding-bottom: 32px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: auto;
   }
 `
 
@@ -81,4 +95,6 @@ export const Button = styled(Link)`
   background-color: ${colors.salmon};
   font-weight: bold;
   font-size: 14px;
+  position: absolute;
+  bottom: 8px;
 `

@@ -18,7 +18,7 @@ export const Footer = styled.footer`
       color: ${colors.salmon};
 
       font-size: 10px;
-      width: 480px;
+      max-width: 480px;
     }
   }
 `

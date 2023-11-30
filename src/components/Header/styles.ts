@@ -25,10 +25,19 @@ export const LogoContainer = styled.div<Props>`
   max-width: 125px;
   margin: 40px auto ${(props) => (props.homePage ? '140px' : '0')};
   padding-bottom: ${(props) => (props.homePage ? '0' : '64px')};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 32px auto;
+    padding: 0;
+  }
 `
 
 export const Logo = styled(Link)`
-  width: 125px;
+  h1 {
+    img {
+      width: 125px;
+    }
+  }
 `
 
 export const SubTitle = styled.p`
@@ -44,6 +53,10 @@ export const SubTitle = styled.p`
 export const LinkContainer = styled.div`
   width: 250px;
   margin-top: 59px;
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 0 auto;
+    padding: 0;
+  }
 `
 
 export const LinkHeader = styled(Link)`
@@ -58,8 +71,19 @@ export const CartInfos = styled.p`
   font-weight: 900;
   width: 250px;
   margin-top: 59px;
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 32px;
+  }
 `
 export const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    align-items: center;
+    text-align: center;
+  }
 `

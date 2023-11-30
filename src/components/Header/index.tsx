@@ -38,7 +38,7 @@ const Header = ({ homePage }: Props) => {
               </S.Logo>
             </S.LogoContainer>
             <S.CartInfos>
-              <span>0</span> produto(s) no carrinho
+              0 <span>produto(s) no carrinho</span>
             </S.CartInfos>
           </S.NavBar>
         </S.Header>
