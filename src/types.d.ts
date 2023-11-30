@@ -1,4 +1,4 @@
-declare type Menu = {
+declare type Product = {
   foto: string
   preco: number
   id: number
@@ -15,7 +15,7 @@ declare type Restaurant = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: Menu[]
+  cardapio: Product[]
 }
 
 declare type ModalState = {
@@ -25,4 +25,5 @@ declare type ModalState = {
   description: string
   price: number
   portion: string
+  product: Product
 }

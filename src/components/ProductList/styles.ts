@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
+import { Button, breakpoints, colors } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -31,21 +31,6 @@ export const Product = styled.li`
     padding-bottom: 32px;
   }
 `
-export const Button = styled.button`
-  position: absolute;
-  bottom: 8px;
-  margin: 0 auto;
-  width: 95%;
-  background-color: ${colors.beige};
-  color: ${colors.salmon};
-  font-size: 14px;
-  font-weight: bold;
-  padding: 4px 0;
-  border: none;
-  margin-top: 8px;
-  cursor: pointer;
-`
-
 export const Description = styled.p`
   color: ${colors.beige};
   font-size: 14px;

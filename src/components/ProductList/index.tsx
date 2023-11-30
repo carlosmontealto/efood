@@ -4,6 +4,10 @@ import { parseToBrl } from '../../utils'
 
 import * as S from './styles'
 import closeIcon from '../../assets/images/close-icon.svg'
+import { Button } from '../../styles'
+import { useDispatch } from 'react-redux'
+
+import { open, add } from '../../store/reducers/cart'
 
 type Props = {
   id: string
@@ -17,8 +21,18 @@ const ProductList = ({ id }: Props) => {
     name: '',
     description: '',
     price: 0,
-    portion: ''
+    portion: '',
+    product: {
+      descricao: '',
+      foto: '',
+      id: 0,
+      nome: '',
+      porcao: '',
+      preco: 0
+    }
   })
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
@@ -33,8 +47,22 @@ const ProductList = ({ id }: Props) => {
       name: '',
       description: '',
       price: 0,
-      portion: ''
+      portion: '',
+      product: {
+        descricao: '',
+        foto: '',
+        id: 0,
+        nome: '',
+        porcao: '',
+        preco: 0
+      }
     })
+  }
+
+  function adicionarAoCarrinho(addProduct: Product) {
+    dispatch(add(addProduct))
+    closeModal()
+    dispatch(open())
   }
 
   if (!products) {
@@ -50,7 +78,7 @@ const ProductList = ({ id }: Props) => {
               <img src={product.foto} alt={product.nome} />
               <S.Title>{product.nome}</S.Title>
               <S.Description>{product.descricao}</S.Description>
-              <S.Button
+              <Button
                 type="button"
                 onClick={() => {
                   setModal({
@@ -59,12 +87,13 @@ const ProductList = ({ id }: Props) => {
                     name: product.nome,
                     description: product.descricao,
                     portion: product.porcao,
-                    price: product.preco
+                    price: product.preco,
+                    product: product
                   })
                 }}
               >
                 Mais detalhes
-              </S.Button>
+              </Button>
             </S.Product>
           ))}
         </S.List>
@@ -85,7 +114,10 @@ const ProductList = ({ id }: Props) => {
                 {modal.description} <br /> <br /> Serve: de{' '}
                 <span>{modal.portion}</span>
               </p>
-              <S.ButtonModal type="button">
+              <S.ButtonModal
+                type="button"
+                onClick={() => adicionarAoCarrinho(modal.product)}
+              >
                 Adicionar ao carrinho - <span>{parseToBrl(modal.price)}</span>
               </S.ButtonModal>
             </div>

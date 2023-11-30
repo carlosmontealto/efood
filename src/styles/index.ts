@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 
 export const colors = {
   white: '#ffffff',
@@ -34,4 +35,18 @@ export const GlobalCss = createGlobalStyle`
       max-width: 80%;
     }
   }
+`
+export const Button = styled.button`
+  position: absolute;
+  bottom: 8px;
+  margin: 0 auto;
+  width: 95%;
+  background-color: ${colors.beige};
+  color: ${colors.salmon};
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 0;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
 `

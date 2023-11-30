@@ -4,3 +4,12 @@ export const parseToBrl = (amount = 0) => {
     currency: 'BRL'
   }).format(amount)
 }
+
+export const getTotalPrice = (items: Product[]) => {
+  return items.reduce((accumulator, currentItem) => {
+    if (currentItem.preco) {
+      return (accumulator += currentItem.preco)
+    }
+    return 0
+  }, 0)
+}

@@ -71,6 +71,7 @@ export const CartInfos = styled.p`
   font-weight: 900;
   width: 250px;
   margin-top: 59px;
+  cursor: pointer;
   @media (max-width: ${breakpoints.tablet}) {
     margin: 0 auto;
     padding: 0;
