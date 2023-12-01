@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import Hero from '../../components/Hero'
 import ProductList from '../../components/ProductList'
+
 import { useGetProductsQuery } from '../../services/api'
 
 type ProductsParams = {

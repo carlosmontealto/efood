@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
+
 import { useGetRestaurantsQuery } from '../../services/api'
 
 const Home = () => {

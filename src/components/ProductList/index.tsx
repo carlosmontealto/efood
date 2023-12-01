@@ -1,14 +1,15 @@
 import { useState } from 'react'
-
-import { parseToBrl } from '../../utils'
-
-import * as S from './styles'
-import closeIcon from '../../assets/images/close-icon.svg'
-import { Button } from '../../styles'
 import { useDispatch } from 'react-redux'
 
-import { openCart, add } from '../../store/reducers/cart'
 import Loader from '../Loader'
+
+import { parseToBrl } from '../../utils'
+import { openCart, add } from '../../store/reducers/cart'
+
+import * as S from './styles'
+import { Button } from '../../styles'
+
+import closeIcon from '../../assets/images/close-icon.svg'
 
 type Props = {
   products?: Restaurant

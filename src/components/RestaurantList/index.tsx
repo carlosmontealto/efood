@@ -1,7 +1,9 @@
-import estrela from '../../assets/images/estrela.svg'
-import * as S from './styles'
 import Tag from '../Tag'
 import Loader from '../Loader'
+
+import * as S from './styles'
+
+import estrela from '../../assets/images/estrela.svg'
 
 type Props = {
   restaurants?: Restaurant[]
