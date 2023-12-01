@@ -1,19 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 
 import { getTotalPrice, parseToBrl } from '../../utils'
 import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
+import { closeCart, openCheckout, remove } from '../../store/reducers/cart'
 
 import * as S from './styles'
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
-  const navigate = useNavigate()
+  const { isOpenCart, items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
 
-  const closeCart = () => {
-    dispatch(close())
+  const closeCartFunction = () => {
+    dispatch(closeCart())
   }
 
   const removeItem = (id: number) => {
@@ -21,14 +19,15 @@ const Cart = () => {
   }
 
   const goToCheckout = () => {
-    navigate('/checkout')
-    closeCart()
+    closeCartFunction()
+    dispatch(openCheckout())
   }
 
   return (
-    <S.CartContainer className={isOpen ? 'is-open' : ''}>
-      <S.Overlay onClick={closeCart} />
+    <S.CartContainer className={isOpenCart ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCartFunction} />
       <S.Sidebar>
+        <S.CloseButton onClick={closeCartFunction} />
         {items.length > 0 ? (
           <>
             <ul>

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootReducer } from '../../store'
-import { open, clear } from '../../store/reducers/cart'
+import { openCart, clear } from '../../store/reducers/cart'
 
 import * as S from './styles'
 
@@ -16,8 +16,8 @@ const Header = ({ homePage }: Props) => {
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
 
-  const openCart = () => {
-    dispatch(open())
+  const openCartFunction = () => {
+    dispatch(openCart())
   }
   return (
     <>
@@ -50,7 +50,7 @@ const Header = ({ homePage }: Props) => {
               </S.Logo>
             </S.LogoContainer>
             <div>
-              <S.CartInfos role="button" onClick={openCart}>
+              <S.CartInfos role="button" onClick={openCartFunction}>
                 {items.length} <span>produto(s) no carrinho</span>
               </S.CartInfos>
             </div>

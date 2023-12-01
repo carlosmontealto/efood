@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Button, colors } from '../../styles'
 
 import trash from '../../assets/images/lixeira.svg'
+import closeIcon from '../../assets/images/close-icon.svg'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -97,4 +98,15 @@ export const ButtonCart = styled(Button)`
   position: relative;
   max-width: 100%;
   width: 100%;
+`
+export const CloseButton = styled.button`
+  background-image: url(${closeIcon});
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
 `

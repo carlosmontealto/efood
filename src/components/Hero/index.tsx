@@ -1,33 +1,29 @@
-import { useEffect, useState } from 'react'
+import Loader from '../Loader'
 import * as S from './styles'
 
 type Props = {
-  id: string
+  products?: Restaurant
+  isLoading: boolean
 }
 
-const Hero = ({ id }: Props) => {
-  const [products, setProducts] = useState<Restaurant>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setProducts(res))
-  }, [id])
-
-  if (!products) {
-    return <h3>Carregando...</h3>
+const Hero = ({ isLoading, products }: Props) => {
+  if (isLoading) {
+    return <Loader />
   }
 
-  return (
-    <S.Banner style={{ backgroundImage: `url(${products.capa})` }}>
-      <div className="container">
-        <S.Infos>
-          <p>{products.tipo}</p>
-          <h2>{products.titulo}</h2>
-        </S.Infos>
-      </div>
-    </S.Banner>
-  )
+  if (products) {
+    return (
+      <S.Banner style={{ backgroundImage: `url(${products.capa})` }}>
+        <div className="container">
+          <S.Infos>
+            <p>{products.tipo}</p>
+            <h2>{products.titulo}</h2>
+          </S.Infos>
+        </div>
+      </S.Banner>
+    )
+  }
+  return <></>
 }
 
 export default Hero
